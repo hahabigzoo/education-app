@@ -21,6 +21,6 @@ from django.conf.urls import url
 
 urlpatterns = [
     path(r'^admin/',admin.site.urls),
-    path(r'^agency/', include('eduAgencyApp.urls')),  #import agency url
+   # path(r'^agency/', include('eduAgencyApp.urls')),  #import agency url
     path(r'^manage/',include('Administrator.urls')),  #import administrate url
 ]
