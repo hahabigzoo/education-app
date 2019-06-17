@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse,HttpResponseRedirect
 from django.views.generic import View 
 from django import forms
-from util import Util
+from eduAgencyApp.util import Util
 # Create your views here.
 class AgencyIndex(View):
     '''首页'''
@@ -27,6 +27,7 @@ class AgencyLogin(View):
                 return render(request,"AgencyLogin.html",{'uf':uf,"error":"用户名和密码不能为空"})
             ## 判断用户名与密码是否匹配
             pass
+            user=True
             if user:  ##登陆成功
                 response = HttpResponseRedirect('/agency/index/')
                 request.session['username']=username #将session信息写到服务器
@@ -35,13 +36,13 @@ class AgencyLogin(View):
                 return render(request,"AgencyLogin.html",{'uf':uf,"error":"用户名或密码错误"})
 
 
-class AgencyLogout(Views):
+class AgencyLogout(View):
     #用户登出
-    def get(request):
+    def get(self,request):
         response = HttpResponseRedirect('/index/') #登出后跳转到首页
         request.session['username']=""
         return response
-    def post(request):
+    def post(self,request):
         self.get(request)
     
 

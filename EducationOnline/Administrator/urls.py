@@ -20,6 +20,4 @@ from django.conf.urls import url
 from Administrator.views import *
 
 urlpatterns = [
-    url(r'^$',AgencyIndex.as_view() ),  #import agency url
-    url(r'^adminpost/$',AgencyAdmin.as_view()),
 ]
